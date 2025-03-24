@@ -1,0 +1,114 @@
+/*----------------------------------------*/
+/*  15. event
+/*----------------------------------------*/
+
+.event {
+    &__item {
+        &--1 {
+            @include respond(md) {
+                padding-right: 10px;
+            }
+            @include respond(xs) {
+                padding-right: 0;
+                margin-top: 30px;
+            }
+        }
+        &--2 {
+            @include respond(md) {
+                padding-left: 10px;
+            }
+            @include respond(xs) {
+                padding-left: 0;
+            }
+        }
+    }
+    &__wrap {
+        position: relative;
+        &::before {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            @include transform(translateX(-50%));
+            content: "";
+            background-color: #E9E6E2;
+            width: 3px;
+            height: 100%;
+            @include respond(xs) {
+                display: none;
+            }
+        }
+    }
+    &__content {
+        padding: 50px 30px 0;
+        @include respond(md) {
+            padding: 35px 30px 0;
+            padding-left: 0;
+        }
+    }
+    &__img {
+        position: relative;
+        &::before {
+            position: absolute;
+            top: 20px;
+            right: -59px;
+            content: "";
+            border: 4px solid $theme-color;
+            width: 18px;
+            height: 18px;
+            @include border-radius(50%);
+            background-color: $white;
+            @include respond(md) {
+                right: -34px;
+            }
+            @include respond(xs) {
+                display: none;
+            }
+        }
+    }
+    &__item--2 &__img {
+        &::before {
+            right: auto;
+            left: -59px;
+            @include respond(md) {
+                left: -34px;
+            }
+        }
+    }
+    &__time {
+        padding: 3px 30px;
+        background-color: rgba($color: $theme-color, $alpha: .04);
+        color: $theme-color;
+        @include border-radius(20px);
+        font-size: 15px;
+        font-weight: 500;
+        display: inline-block;
+        margin-bottom: 18px;
+        i {
+            margin-right: 6px;
+        }
+    }
+    &__title {
+        font-size: 36px;
+        font-weight: 700;
+        margin-bottom: 24px;
+        @include respond(md) {
+            font-size: 25px;
+        }
+        a {
+            color: $heading-color;
+            &:hover {
+                color: $theme-color;
+            }
+        }
+    }
+    &__location {
+        margin-top: 40px;
+        padding-top: 15px;
+        border-top: 1px solid rgba($color: $black, $alpha: .17);
+        display: block;
+        i {
+            color: $theme-color;
+            margin-right: 6px;
+        }
+    }
+}

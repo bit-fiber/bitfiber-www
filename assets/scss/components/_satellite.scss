@@ -1,0 +1,54 @@
+/*----------------------------------------*/
+/*  13. satellite
+/*----------------------------------------*/
+
+.satellite {
+    &__img {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 45.4%;
+        border: 10px solid $theme-color;
+        border-bottom: 19px solid $theme-color;
+        border-right: 0;
+        @include border-radius(10px);
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        z-index: -1;
+        @include respond(md) {
+            display: none;
+        }
+        .discout-price {
+            left: -58px;
+            top: 50%;
+            @include transform(translateY(-50%));
+
+        }
+    }
+    &__list {
+        @include respond(xs) {
+            margin-left: 0;
+        }
+        li {
+            position: relative;
+            font-size: 15px;
+            padding-left: 14px;
+            &:not(:last-child) {
+                margin-bottom: 5px;
+            }
+            &::before {
+                position: absolute;
+                top: 50%;
+                left: 0;
+                width: 6px;
+                height: 7px;
+                content: "";
+                background-color: $theme-color;
+                @include transform(translateY(-50%));
+            }
+        }
+    }
+}
+.mt-none-110 {
+    margin-top: -110px;
+}

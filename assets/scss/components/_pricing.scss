@@ -1,0 +1,408 @@
+/*----------------------------------------*/
+/*  06. pricing
+/*----------------------------------------*/
+.mbps-pricing {
+    &__wrap {
+        z-index: 1;
+    }
+    &__tab {
+        justify-content: center;
+        border: 0;
+        margin-top: -22px;
+        .nav-item {
+            margin: 0 10px;
+            margin-top: 22px !important;
+            @include respond(lg) {
+                margin: 0 5px;
+            }
+            .nav-link {
+                color: $theme-color;
+                background-color: $white;
+                font-size: 18px;
+                font-weight: 500;
+                text-transform: uppercase;
+                padding: 10px 48px;
+                border: 0;
+                border-radius: 5px;
+                position: relative;
+                @include respond(laptop) {
+                    font-size: 17px;
+                    padding: 8px 25px;
+                }
+                @include respond(lg) {
+                    font-size: 14px;
+                    padding: 6px 25px;
+                }
+                @include respond(md) {
+                    font-size: 15px;
+                    padding: 8px 30px;
+                }
+                &::before {
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    bottom: -6px;
+                    margin: auto;
+                    content: "";
+                    background: $theme-color;
+                    width: 12px;
+                    height: 12px;
+                    opacity: 0;
+                    @include transform(rotate(45deg));
+                    @include transition(.3s);
+                    z-index: -1;
+                }
+                &.active {
+                    background-color: $theme-color;
+                    color: $white;
+                    &::before {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+    &__tab-content {
+        text-align: center;
+    }
+    &__price {
+        font-size: 20px;
+        color: $heading-color;
+        background-color: $white;
+        padding: 3px 30px;
+        border: 1px solid $theme-color;
+        display: inline-block;
+        @include border-radius(7px);
+        margin-top: 50px;
+        font-weight: 500;
+        .price {
+            font-size: 67px;
+            font-weight: 700;
+            color: $theme-color;
+            line-height: 1.2;
+        }
+    }
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 30px;
+        li {
+            font-size: 18px;
+            min-width: 300px;
+            margin-top: 30px;
+            @include respond(laptop) {
+                font-size: 16px;
+                margin-top: 20px;
+            }
+            &:nth-child(1),
+            &:nth-child(3) {
+                margin-right: 30px;
+            }
+            i {
+                margin-right: 10px;
+                font-size: 16px;
+                color: $theme-color;
+
+            }
+        }
+    }
+    &__price-box-wrap {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin-top: 70px;
+        flex-wrap: wrap;
+    }
+    &__price-box {
+        position: absolute;
+        top: 82px;
+        left: 200px;
+        z-index: 1;
+        width: 287px;
+        @include respond(laptop) {
+            left: 25px;
+        }
+        @include respond(lg) {
+            left: 12px;
+        }
+        @include respond(md) {
+            position: relative;
+            top: 0;
+        }
+        @include respond(xs) {
+            left: 0;
+        }
+        .thumb {
+            @include border-radius(11px);
+            overflow: hidden;
+            img {
+                width: 100%;
+            }
+            &::before {
+                position: absolute;
+                bottom: -9px;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: $theme-color;
+                content: "";
+                z-index: -1;
+                @include border-radius(20px);
+            }
+        }
+        &--2 {
+            right: 195px;
+            left: auto;
+            bottom: 78px;
+            top: auto;
+            @include respond(laptop) {
+                right: 25px;
+            }
+            @include respond(lg) {
+                right: 12px;
+            }
+            @include respond(md) {
+                bottom: 0;
+            }
+            @include respond(xs) {
+                right: 0;
+                margin-top: 50px;
+            }
+            .mbps-pricing__price-box-btn {
+                left: 30px;
+                right: auto;
+            }
+            .thumb::before {
+                bottom: 0;
+                top: -9px;
+                @include respond(xs) {
+                    bottom: -9px;
+                    top: auto;
+                }
+            }
+        }
+    }
+    &__price-box-btn {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        top: 50%;
+        left: 0;
+        right: 0;
+        @include transform(translateY(-50%));
+        .thm-btn {
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+    }
+    &__price-box-mbps {
+        position: absolute;
+        top: 26px;
+        left: 13px;
+        width: 90px;
+        height: 90px;
+        background:$theme-color;
+        text-align: center;
+        border-radius: 50%;
+        color: $white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &::before {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            bottom: 5px;
+            left: 5px;
+            content: "";
+            border: 1px dashed #FFA2B6;
+            @include border-radius(50%);
+        }
+        h2 {
+            color: $white;
+            line-height: 1;
+        }
+        span {
+            font-size: 15px;
+            font-weight: 600;
+            margin-top: 1px;
+            display: block;
+            color: #fff;
+            text-transform: uppercase;
+        }
+    }
+    &__price-box:hover &__price-box-mbps::before {
+        animation: spin 12s infinite linear;
+        -webkit-animation: spin 12s infinite linear;
+    }
+    &__price-box-price {
+        position: absolute;
+        top: 50px;
+        left: 32px;
+        span {
+            display: inline-block;
+            color: $white;
+            font-size: 18px;
+            font-weight: 500;
+        }
+        .price-text {
+            background: none;
+            border: 0;
+            padding: 0;
+            margin: 0;
+            color: $white;
+            margin-top: 15px;
+            .price {
+                color: $theme-color;
+            }
+        }
+    }
+    &__bg {
+        position: absolute;
+        left: 0;
+        top: 70px;
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        z-index: -1;
+    }
+    &__remote-img {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        z-index: -1;
+    }
+}
+.pricing {
+    &__item {
+        border: 1px solid #E6E6EA;
+        padding: 40px 20px;
+        position: relative;
+        z-index: 1;
+        &::before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            z-index: -1;
+            background: url(../img/bg/price_bg.jpg) no-repeat;
+            background-size: auto;
+            background-size: cover; 
+            content: "";
+            @include transition(all .4s cubic-bezier(0.785, 0.135, 0.15, 0.86));
+        }
+        &:hover::before {
+            width: 100%;
+        }
+        .head {
+            font-size: 20px;
+            font-weight: 700;
+            color: $heading-color;
+            display: inline-block;
+            margin-bottom: 10px;
+            @include transition(.3s);
+        }
+        .price-wrap{
+            line-height: 1.2;
+            @include transition(.3s);
+            span {
+                color: $theme-color;
+                font-size: 27px;
+            }
+            .price {
+                font-size: 47px;
+                font-weight: 700;
+            }
+            .sign {
+                position: absolute;
+            }
+        }
+        &:hover {
+            .head,
+            .price-wrap span {
+                color: $white;
+            }
+        }
+    }
+    &__item:hover &__lists li {
+        color: $white;
+    }
+    &__item:hover &__btn a {
+        background-color: $white;
+    }
+    &__item:hover &__btn a span {
+        color: $theme-color;
+    }
+    // &__item:hover &__icon {
+    //     background-color: transparent;
+    // }
+
+    &__icon {
+        // margin-left: -20px;
+        // margin-right: -20px;
+        margin-top: 18px;
+        margin-bottom: 30px;
+        // background-color: #FFF6F8;
+        padding: 15px 0;
+        @include transition(.3s);
+        li {
+            color: $white;
+            width: 58px;
+            height: 58px;
+            @include border-radius(50%);
+            background-color: $white;
+            color: $theme-color;
+            font-size: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.03);
+            z-index: 1;
+            position: relative;
+            @include transition(.3s);
+            &:not(:last-child) {
+                margin-right: 30px;
+                @include respond(laptop) {
+                    margin-right: 17px;
+                }
+            }
+            &.middle {
+                background-color: $theme-color;
+                color: $white;
+                width: 70px;
+                height: 70px;
+            }
+        }
+    }
+    &__lists {
+        text-align: left;
+        padding-left: 30px;
+        @include respond(laptop) {
+            padding-left: 0;
+        }
+        li {
+            font-size: 18px;
+            &:not(:last-child) {
+                margin-bottom: 20px;  
+            }
+            i {
+                margin-right: 8px;
+                color: $theme-color;
+            }
+        }
+    }
+    &__btn {
+        a {
+            padding: 16px 35px;
+            &:hover {
+                background-color: $white;
+                span {
+                    color: $theme-color;
+                }
+            }
+        }
+    }
+}

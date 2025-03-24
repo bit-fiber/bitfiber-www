@@ -1,0 +1,138 @@
+/*----------------------------------------*/
+/*  08. services
+/*----------------------------------------*/
+.services {
+    &__area [class^="col-"]:last-child &__item {
+        border-right: 0;
+    }
+    &__area [class^="col-"]:nth-child(2) &__item {
+        @include respond(lg) {
+            border-right: 0;
+        }
+    }
+    &__area [class^="col-"]:nth-child(3) &__item,
+    &__area [class^="col-"]:nth-child(4) &__item {
+        border-bottom: 0;
+    }
+    &__item {
+        background-color: #F9F9FC;
+        padding: 70px 40px 85px 40px;
+        border-right: 1px solid #E9EEF1;
+        position: relative;
+        z-index: 1;
+        @include respond(laptop) {
+            padding: 70px 25px 60px 32px;
+        }
+        @include respond(lg) {
+            padding: 70px 50px 60px 70px;
+            border-bottom: 1px solid #E9EEF1;
+        }
+        @include respond(md) {
+            padding: 70px 40px 60px 50px;
+        }
+        @include respond(xs) {
+            padding: 70px 30px 50px 40px;
+        }
+        &::before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            z-index: -1;
+            background: url(../img/bg/service_bg_02.jpg) no-repeat;
+            background-size: auto;
+            background-size: cover; 
+            content: "";
+            @include transition(all .4s cubic-bezier(0.785, 0.135, 0.15, 0.86));
+        }
+        &.active::before,
+        &:hover::before {
+            width: 100%;
+        }
+        &.active .services__icon::before,
+        &:hover .services__icon::before {
+            background-color: $theme-color;
+        }
+        &.active .services__icon img,
+        &:hover .services__icon img {
+            filter: brightness(0) invert(1);
+        }
+
+        &.active .services__title,
+        &:hover .services__title {
+            color: $white;
+        }
+
+        &.active .services__list li,
+        &:hover .services__list li {
+            color: $white;
+        }
+        &--2 {
+            background-color: $white;
+            box-shadow: 0px 4px 29px rgba(0, 0, 0, 0.05);
+            padding: 70px 40px 60px 40px;
+            @include respond(lg) {
+                padding: 70px 25px 50px 35px;
+            }
+        }
+    }
+    &__icon {
+        margin-bottom: 47px;
+        display: inline-block;
+        position: relative;
+        z-index: 1;
+        img {
+            @include transition(.3s);
+        }
+        &::before {
+            position: absolute;
+            top: -33px;
+            left: -12px;
+            width: 75px;
+            height: 105px;
+            background-color: #F9F0F5;
+            content: "";
+            z-index: -1;
+            border-radius: 37px;
+            @include border-radius(37px);
+            @include transform(rotate(45deg));
+            @include transition(.3s);
+        }
+    }
+    &__title {
+        margin-bottom: 30px;
+        font-style: 28px;
+        @include transition(.3s);
+    }
+    &__bg {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 40%;
+        height: 100%;
+    }
+    &__list {
+        li {
+            font-size: 15px;
+            @include transition(.3s);
+            &:not(:last-child) {
+                margin-bottom: 13px;
+            }
+            i {
+                color: $theme-color;
+                margin-right: 8px;
+            }
+        }
+    }
+    &__btn {
+        .thm-btn {
+            padding: 0;
+            background-color: transparent;
+            padding-right: 50px;
+            span, i {
+                color: $theme-color;
+            }
+        }
+    }
+}

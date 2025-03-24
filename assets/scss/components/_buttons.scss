@@ -1,0 +1,142 @@
+// .thm_btn {
+// 	z-index: 1;
+// 	font-size: 18px;
+// 	padding: 20px 32px;
+// 	text-align: center;
+// 	position: relative;
+// 	color: $white;
+// 	background-color: $theme-color;
+// 	font-weight: 500;
+// 	display: inline-block;
+// 	line-height: 1.3;
+//     @include border-radius(2px);
+//     & > i {
+//         padding-left: 7px;
+//         @include transform(translateY(1px));
+//         @include transition(.3s);
+//         font-size: 15px;
+//     }
+//     &:hover {
+//         color: $white;
+//         &::before {
+//             left: 0px;
+//             width: 100%;
+//             right: auto;
+//         }
+//         & > i {
+//             @include transform(translate(5px, 1px));
+//         }
+//     }
+//     &::before {
+//         top: 0px;
+//         width: 0px;
+//         left: auto;
+//         right: 0px;
+//         z-index: -1;
+//         bottom: 0px;
+//         content: "";
+//         position: absolute;
+//         background-color: $gray-dark;
+//         @include transition(all 0.3s ease-in-out);
+//     }
+//     &--2 {
+//         background-color: $gray-dark;
+//         &::before {
+//             background-color: $theme-color;
+//         } 
+//     }
+// }
+
+.thm-btn {
+    font-size: 16px;
+	padding: 19px 30px;
+    padding-right: 52px;
+    z-index: 1;
+    text-align: center;
+    color: #ffffff;
+    background: $theme-color;
+    display: inline-block;
+    line-height: 1.3;
+    @include transition(0.3s);
+    @include border-radius(2px);
+    overflow: hidden;
+    position: relative;
+    font-weight: 500;
+    text-transform: capitalize;
+    @include respond(lg) {
+        padding: 17px 28px;
+        padding-right: 50px;
+    }
+    i {
+        position: absolute;
+        top: 50%;
+        right: 30px;
+        @include transform(translateY(-50%));
+        color: #fff;
+        font-size: 13px;
+        transition: all .3s ease;
+    }
+    &:hover {
+        background-color: $gray-dark;
+        i {
+            right: 28px;
+        }
+        .btn-wrap span {
+            &:nth-child(1) {
+                @include transform(translateY(-150%));
+            }
+            &:nth-child(2) {
+                top: 50%;
+                @include transform(translateY(-50%));
+            }
+        }
+    }
+    .btn-wrap {
+        position: relative;
+        overflow: hidden;
+        display: block;
+        span {
+            color: $white;
+            @include transition(all .3s ease);
+            &:nth-child(1) {
+                display: block;
+                position: relative;
+            }
+            &:nth-child(2) {
+                position: absolute;
+                top: 100%;
+                display: block;
+            }
+        }
+    }
+    &--2 {
+        background-color: $gray-dark;
+        &:hover {
+            background: $theme-color;
+        }
+    }
+    &--transparent {
+        background-color: rgba($color: $black, $alpha: .24);
+        @include border-radius(30px);
+        border: 1px solid $theme-color;
+        &:hover {
+            background-color: $theme-color
+        }
+    }
+    &--radius {
+        @include border-radius(30px);
+    }
+}
+
+.btns {
+    a {
+        margin-right: 30px;
+        margin-top: 20px;
+        &:last-child {
+            margin-right: 0;
+        }
+        @include respond(md) {
+            margin-right: 20px;
+        }
+    }
+}

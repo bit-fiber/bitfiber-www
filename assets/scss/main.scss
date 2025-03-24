@@ -1,0 +1,77 @@
+/*-----------------------------------------------------------------------------------
+
+    Project Name: NextBit HTML-5 Template
+    Author: Themexriver -->> (https://themeforest.net/user/themexriver)
+    Support: themexriver.support@gmail.com
+    Description: NextBit HTML-5 Template
+    Developer: Mohammad Wasim Mia -->> (wasimmia.info@gmail.com)
+    Version: 1.0
+
+-----------------------------------------------------------------------------------
+
+    CSS INDEX
+    ===================
+
+	01. Theme default CSS
+    02. header
+    03. hero
+    04. about
+    05. cursor
+    06. pricing
+    07. subscribe
+    08. services
+    09. speed test
+    10. movie
+    11. testimonial
+    12. blog
+    13. satellite
+    14. counter
+    15. event
+    16. video
+    17. faq
+
+-----------------------------------------------------------------------------------*/
+// abstracts scss
+@import
+    'abstracts/mixins',
+    'abstracts/variables';
+
+// base scss
+@import 
+    'base/fonts',
+    'base/base',
+    'base/spacing',
+    'base/typography';
+
+// layout scss
+@import 
+    'layout/header',
+    'layout/navigation';
+ 
+// components scss
+@import 
+'components/buttons',
+'components/backtotop',
+'components/social-links',
+'components/search',
+'components/preloder',
+'components/sidebar',
+'components/hero',
+'components/about',
+'components/cursor',
+'components/pricing',
+'components/subscribe',
+'components/services',
+'components/speed-test',
+'components/movie',
+'components/testimonial',
+'components/blog',
+'components/satellite',
+'components/counter',
+'components/event',
+'components/video',
+'components/faq';
+
+// layout scss
+@import 
+    'layout/footer';
