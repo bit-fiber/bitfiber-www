@@ -11893,6 +11893,7 @@
 	position:relative;
 	margin-bottom:var(--margin-bottom-30);
 	overflow: hidden;
+	height: 720px;
 }
 
 .price-block.category-label::before,  .price-block-six.category-label::before {
